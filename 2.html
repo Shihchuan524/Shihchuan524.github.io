@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香水名單收集頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #444;
+        }
+        .header p {
+            font-size: 18px;
+            color: #666;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content ul li {
+            margin-bottom: 10px;
+        }
+        .form {
+            margin-bottom: 20px;
+        }
+        .form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form input,
+        .form select,
+        .form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .form button:hover {
+            background-color: #0056b3;
+        }
+        .trust {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .trust p {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>找到專屬於你的完美香氣</h1>
+            <p>只需3分鐘填寫表單，免費獲得專屬香氛推薦 + 限量新品試用包！</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h2>加入名單，您將獲得：</h2>
+            <ul>
+                <li>專屬香氛建議：根據你的偏好，推薦最契合的香水。</li>
+                <li>限量新品試用：首批加入的會員將獲贈新品香水試用裝。</li>
+                <li>尊享會員福利：搶先了解新品發布，並獲取會員專屬折扣。</li>
+            </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="form">
+            <form action="#" method="POST">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" placeholder="輸入您的姓名" required>
+
+                <label for="email">電子郵件：</label>
+                <input type="email" id="email" name="email" placeholder="輸入您的電子郵件" required>
+
+                <label for="preference">偏好香氣類型：</label>
+                <select id="preference" name="preference" required>
+                    <option value="" disabled selected>選擇您的偏好</option>
+                    <option value="floral">花香調</option>
+                    <option value="fruity">果香調</option>
+                    <option value="woody">木質調</option>
+                    <option value="oriental">東方調</option>
+                    <option value="marine">海洋調</option>
+                </select>
+
+                <button type="submit">立即索取限量試香包！</button>
+            </form>
+        </div>
+
+        <!-- Trust Section -->
+        <div class="trust">
+            <h3>用戶見證</h3>
+            <p>「我完全愛上了品牌推薦的香水，感覺像是為我量身打造的香氣！」— Jane</p>
+            <h3>品牌認證</h3>
+            <p>榮獲多項國際香氛大獎，由世界頂級調香師親自操刀設計。</p>
+            <h3>隱私保障</h3>
+            <p>我們承諾保護您的個人資料，絕不外洩或用於其他用途。</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 香水品牌名 - 保留所有權利</p>
+        </div>
+    </div>
+</body>
+</html>
