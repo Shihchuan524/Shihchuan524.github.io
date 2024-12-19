@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡化版 CRM 系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        nav button:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>簡化版 CRM 系統</h1>
+</header>
+<nav>
+    <button onclick="showModule('addClient')">添加客戶</button>
+    <button onclick="showModule('viewClients')">查看客戶</button>
+</nav>
+
+<div class="container" id="addClient">
+    <h2>添加客戶</h2>
+    <form id="clientForm">
+        <div class="form-group">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" placeholder="輸入姓名" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="輸入 Email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">電話號碼:</label>
+            <input type="text" id="phone" placeholder="輸入電話號碼" required>
+        </div>
+        <button type="submit" class="btn">提交</button>
+    </form>
+</div>
+
+<div class="container" id="viewClients">
+    <h2>客戶列表</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>Email</th>
+                <th>電話</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="clientList">
+            <!-- 客戶資料將自動顯示 -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // 初始化
+    let clients = [];
+
+    // 顯示模組
+    function showModule(moduleId) {
+        document.querySelectorAll('.container').forEach(container => {
+            container.classList.remove('active');
+        });
+        document.getElementById(moduleId).classList.add('active');
+    }
+
+    // 添加客戶
+    document.getElementById('clientForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        if (name && email && phone) {
+            clients.push({ name, email, phone });
+            alert('客戶已添加！');
+            this.reset();
+            updateClientList();
+        }
+    });
+
+    // 更新客戶列表
+    function updateClientList() {
+        const clientList = document.getElementById('clientList');
+        clientList.innerHTML = ''; // 清空列表
+
+        clients.forEach((client, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${client.name}</td>
+                <td>${client.email}</td>
+                <td>${client.phone}</td>
+                <td><button class="btn" onclick="deleteClient(${index})">刪除</button></td>
+            `;
+            clientList.appendChild(row);
+        });
+    }
+
+    // 刪除客戶
+    function deleteClient(index) {
+        clients.splice(index, 1);
+        updateClientList();
+    }
+
+    // 預設顯示添加客戶模組
+    showModule('addClient');
+</script>
+</body>
+</html>
