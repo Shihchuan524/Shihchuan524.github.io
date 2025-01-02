@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免費香氛體驗 | 香水品牌活動</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #FDEBEB, #FFF5E1); /* 香水感漸層背景 */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #B76E79; /* 玫瑰粉主標色 */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        form {
+            margin-top: 30px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #B76E79; /* 按鈕色調與標題一致 */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #9C5A65;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>探索你的專屬香氛</h1>
+        <p>✨ 加入我們，獲取限量 <strong>香水試管禮包</strong>，讓迷人香氣點綴你的生活！  
+            填寫以下資訊，即可解鎖限量禮包！</p>
+        
+        <form action="#" method="POST">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">電子郵件</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">電話號碼（選填）</label>
+            <input type="text" id="phone" name="phone">
+
+            <label for="fragrance">喜歡的香氛類型</label>
+            <select id="fragrance" name="fragrance" required>
+                <option value="花香調">花香調</option>
+                <option value="木質調">木質調</option>
+                <option value="果香調">果香調</option>
+                <option value="東方調">東方調</option>
+                <option value="清新調">清新調</option>
+            </select>
+
+            <div>
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">我同意接收品牌活動與優惠資訊</label>
+            </div>
+
+            <button type="submit">立即索取試香禮包</button>
+        </form>
+
+        <div class="footer">
+            🎉 限量 100 份，送完即止！  
+            <br> 每月抽出 3 位幸運客戶，贏取正裝香水！
+        </div>
+    </div>
+
+</body>
+</html>
