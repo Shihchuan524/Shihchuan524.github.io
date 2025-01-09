@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>限時優惠 - 立即加入</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fef9f3;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #ff6f61;
+      font-size: 36px;
+    }
+    p {
+      color: #444444;
+      font-size: 18px;
+      margin: 20px 0;
+    }
+    .offer {
+      background-color: #fff5ec;
+      border: 2px dashed #ff6f61;
+      padding: 20px;
+      margin: 20px 0;
+      font-size: 20px;
+      color: #ff6f61;
+      font-weight: bold;
+    }
+    .form-container {
+      margin: 20px 0;
+    }
+    .form-container input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .btn {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #ff4f41;
+    }
+    .timer {
+      font-size: 24px;
+      color: #ff4f41;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>限時優惠，立刻加入！</h1>
+    <p>訂閱我們的郵件列表，立即獲取首次購物 <strong>10% 折扣</strong>！</p>
+    <div class="offer">
+      加入後還可獲得一份免費迷你乾燥花束作為禮物！
+    </div>
+    <div class="form-container">
+      <form action="your-backend-script.php" method="POST">
+        <input type="text" name="name" placeholder="輸入您的姓名" required>
+        <input type="email" name="email" placeholder="輸入您的電子郵件" required>
+        <button type="submit" class="btn">立即加入</button>
+      </form>
+    </div>
+    <div class="timer">
+      優惠倒數：<span id="countdown"></span>
+    </div>
+  </div>
+  <script>
+    // 倒計時功能
+    const deadline = new Date().getTime() + 24 * 60 * 60 * 1000; // 24小時倒計時
+    const countdownElement = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdownElement.innerHTML = "優惠已結束";
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = ${hours}小時 ${minutes}分 ${seconds}秒;
+    }, 1000);
+  </script>
+</body>
+</html>
